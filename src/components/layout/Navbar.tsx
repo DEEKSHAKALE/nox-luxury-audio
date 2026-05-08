@@ -38,7 +38,8 @@ export function Navbar() {
 >
   Sign in
 </Button>
-          <Button size="sm">Get NOX</Button>
+
+
         </div>
       </Container>
     </header>
