@@ -1,0 +1,136 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    --background: oklch(8% 0.005 260);
+    --foreground: oklch(96% 0.005 260);
+    --card: oklch(11% 0.006 260);
+    --card-foreground: oklch(96% 0.005 260);
+    --popover: oklch(11% 0.006 260);
+    --popover-foreground: oklch(96% 0.005 260);
+    --primary: oklch(92% 0.008 260);
+    --primary-foreground: oklch(8% 0.005 260);
+    --secondary: oklch(18% 0.006 260);
+    --secondary-foreground: oklch(96% 0.005 260);
+    --muted: oklch(16% 0.005 260);
+    --muted-foreground: oklch(62% 0.01 260);
+    --accent: oklch(78% 0.02 250);
+    --accent-foreground: oklch(8% 0.005 260);
+    --destructive: oklch(57.7% 0.245 27.325);
+    --destructive-foreground: oklch(98.4% 0.003 247.858);
+    --border: oklch(100% 0 0 / 0.08);
+    --input: oklch(100% 0 0 / 0.12);
+    --ring: oklch(78% 0.02 250);
+
+    --silver-1: oklch(96% 0.005 260);
+    --silver-2: oklch(78% 0.008 260);
+    --silver-3: oklch(55% 0.008 260);
+
+    --gradient-silver: linear-gradient(
+      135deg,
+      oklch(96% 0.005 260),
+      oklch(55% 0.008 260) 50%,
+      oklch(92% 0.008 260)
+    );
+    --gradient-radial-glow: radial-gradient(circle at 50% 50%, oklch(78% 0.02 250 / 0.35), transparent 60%);
+    --gradient-cta: linear-gradient(120deg, oklch(78% 0.02 250), oklch(96% 0.005 260) 50%, oklch(55% 0.02 280));
+    --shadow-glow: 0 0 80px oklch(78% 0.02 250 / 0.25), 0 0 200px oklch(78% 0.02 250 / 0.15);
+    --shadow-card: 0 30px 80px -20px oklch(0% 0 0 / 0.6);
+    --glass-bg: oklch(100% 0 0 / 0.04);
+    --glass-border: oklch(100% 0 0 / 0.08);
+
+    --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, sans-serif;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    color: var(--foreground);
+    background: color-mix(in oklab, var(--accent) 30%, transparent);
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.04em;
+  }
+
+  .text-silver {
+    background: var(--gradient-silver);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
+
+  .glass {
+    background: var(--glass-bg);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid var(--glass-border);
+  }
+
+  .glow-ring {
+    box-shadow: var(--shadow-glow);
+  }
+
+  .grid-noise {
+    background-image: radial-gradient(circle at 25% 20%, color-mix(in oklab, var(--accent) 20%, transparent), transparent 40%),
+      radial-gradient(circle at 75% 80%, color-mix(in oklab, var(--foreground) 10%, transparent), transparent 45%);
+  }
+
+  .cta-gradient {
+    background: var(--gradient-cta);
+    background-size: 200% 200%;
+    animation: cta-shimmer 6s ease-in-out infinite;
+  }
+
+  .film-grain {
+    background-image:
+      linear-gradient(0deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.035)),
+      repeating-linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.035) 0,
+        rgba(255, 255, 255, 0.035) 1px,
+        transparent 1px,
+        transparent 3px
+      ),
+      repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.22) 0,
+        rgba(0, 0, 0, 0.22) 1px,
+        transparent 1px,
+        transparent 4px
+      );
+    background-size: auto, 220px 220px, 260px 260px;
+    mix-blend-mode: overlay;
+  }
+
+  .vignette {
+    background: radial-gradient(ellipse at center, transparent 55%, rgba(0, 0, 0, 0.75) 100%);
+  }
+}
+
+@keyframes cta-shimmer {
+  0%,
+  100% {
+    background-position: 0%;
+  }
+  50% {
+    background-position: 100%;
+  }
+}
+
