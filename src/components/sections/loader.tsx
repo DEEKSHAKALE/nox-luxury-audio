@@ -1,30 +1,15 @@
-import { motion as m } from "framer-motion";
-
 export default function Loader() {
-  return (
-    <m.div
-      initial={{ opacity: 1 }}
-      animate={{ opacity: 0 }}
-      transition={{ delay: 2, duration: 1 }}
-      className="fixed inset-0 z-[99999] flex items-center justify-center bg-black"
-    >
-      <div className="text-center">
-        <m.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="font-display text-5xl tracking-[0.4em] text-white"
-        >
-          NOX
-        </m.h1>
-
-        <m.div
-          initial={{ width: 0 }}
-          animate={{ width: "140px" }}
-          transition={{ delay: 0.5, duration: 1.2 }}
-          className="mx-auto mt-6 h-[2px] bg-white/40"
-        />
+    return (
+      <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black">
+        <div className="text-center">
+          <h1 className="text-4xl font-bold tracking-[0.4em] text-white">
+            NOX
+          </h1>
+  
+          <div className="mt-6 h-[2px] w-40 overflow-hidden rounded-full bg-white/10">
+            <div className="h-full w-full animate-pulse bg-white" />
+          </div>
+        </div>
       </div>
-    </m.div>
-  );
-}
+    );
+  }

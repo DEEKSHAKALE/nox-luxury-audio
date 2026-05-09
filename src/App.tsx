@@ -6,7 +6,7 @@ import { ExplodedView } from "./components/sections/ExplodedView";
 import { FeatureGrid } from "./components/sections/FeatureGrid";
 import { Tech } from "./components/sections/Tech";
 import { Cta } from "./components/sections/Cta";
-import Loader from "./components/loader";
+import Loader from "./components/sections/Loader";
 
 export default function App() {
   const [loading, setLoading] = useState(true);
